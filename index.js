@@ -11,9 +11,7 @@ const orderRoute = require("./routes/order");
 
 dotenv.config();
 
-app.listen(5000, () =>{
-    console.log('Backend running')
-});
+
 
 // Mongodb connection
 //mongodb+srv://user1:8Ce57zzZF6Yc5fU7@cluster0.mvsiss1.mongodb.net/
