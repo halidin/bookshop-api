@@ -7,6 +7,7 @@ const authRoute = require("./routes/auth");
 const clientRoute = require("./routes/client");
 const cartRoute = require("./routes/cart");
 const productRoute = require("./routes/product");
+const serverless = require('serverless-http');
 
 dotenv.config();
 
@@ -33,3 +34,7 @@ app.use('/api/cart',cartRoute);
 app.get('/api/test',() =>{
     console.log('Test is successfull');
 })
+
+
+
+module.exports.handler = serverless(app);
