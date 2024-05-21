@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const cartSchema = new mongoose.Schema(
     {
-        userId:{tpye: String , required: true, unique: true},
+        userId:{type: String , required: true, unique: true},
         products: [
             {
                 productId: {type: String,},
