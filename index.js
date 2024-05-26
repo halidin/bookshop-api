@@ -10,7 +10,7 @@ const productRoute = require("./routes/product");
 
 const cors = require('cors');
 const corsOptions = {
-    origin: 'http://localhost:4200', // Replace with your client app's URL
+    origin: 'http://localhost:4200', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
   
