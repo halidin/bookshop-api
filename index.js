@@ -9,7 +9,12 @@ const cartRoute = require("./routes/cart");
 const productRoute = require("./routes/product");
 
 const cors = require('cors');
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:4200', // Replace with your client app's URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+};
+  
+app.use(cors(corsOptions));
 
 
 // Mongodb connection
