@@ -15,9 +15,9 @@ const corsOptions = {
 };
   
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions), (req, res) => {
-    res.sendStatus(200); // Respond with HTTP 200 OK
-  });
+app.options('/*', (_, res) => {
+    res.sendStatus(200);
+})
 
 // Mongodb connection
 //mongodb+srv://user1:8Ce57zzZF6Yc5fU7@cluster0.mvsiss1.mongodb.net/
