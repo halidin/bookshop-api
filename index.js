@@ -7,15 +7,8 @@ const authRoute = require("./routes/auth");
 const clientRoute = require("./routes/client");
 const cartRoute = require("./routes/cart");
 const productRoute = require("./routes/product");
-var cors = require('cors')
-
-app.UseCors(x => x
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader());
-
-dotenv.config();
-
+var cors = require('cors');
+app.use(cors());
 
 
 // Mongodb connection
