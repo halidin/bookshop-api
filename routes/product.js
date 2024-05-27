@@ -4,7 +4,7 @@ const { tokenVerify,verifyAdmin,verifyTokenAndAuth } = require('../middleware/to
 
 
 // Create product
-router.post('/',verifyAdmin,async(req,res)=>{
+router.post('/add',verifyAdmin,async(req,res)=>{
     const newProduct = new Product(req.body);
     try{
         
