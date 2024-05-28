@@ -7,7 +7,7 @@ const authRoute = require("./routes/auth");
 const clientRoute = require("./routes/client");
 const cartRoute = require("./routes/cart");
 const productRoute = require("./routes/product");
-
+const multer = require('multer');
 const cors = require('cors');
 const corsOptions = {
     origin: 'http://localhost:4200', 
@@ -18,6 +18,10 @@ app.use(cors(corsOptions));
 app.options('/*', (_, res) => {
     res.sendStatus(200);
 })
+
+
+
+app.get()
 
 // Mongodb connection
 //mongodb+srv://user1:8Ce57zzZF6Yc5fU7@cluster0.mvsiss1.mongodb.net/

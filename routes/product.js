@@ -1,10 +1,14 @@
 const router = require('express').Router();
 const Product = require("../models/Product");
 const { tokenVerify,verifyAdmin,verifyTokenAndAuth } = require('../middleware/tokenVerify');
-
+const upload = require('../middleware/upload');
 
 // Create product
 router.post('/add',verifyAdmin,async(req,res)=>{
+    upload(req,res,err);
+    if(err){
+        console.log(err);
+    }
     const newProduct = new Product(req.body);
     try{
         
@@ -16,9 +20,10 @@ router.post('/add',verifyAdmin,async(req,res)=>{
     }
 })
 
+
 // Update product
 router.post('/update/:id',verifyAdmin,async(req,res)=>{
-    
+   
     try{
         
         const updatedProduct = await Product.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
