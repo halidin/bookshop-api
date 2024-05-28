@@ -5,10 +5,7 @@ const upload = require('../middleware/upload');
 
 // Create product
 router.post('/add',verifyAdmin,async(req,res)=>{
-    upload(req,res,err);
-    if(err){
-        console.log(err);
-    }
+
     const newProduct = new Product(req.body);
     try{
         
