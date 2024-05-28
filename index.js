@@ -7,7 +7,6 @@ const authRoute = require("./routes/auth");
 const clientRoute = require("./routes/client");
 const cartRoute = require("./routes/cart");
 const productRoute = require("./routes/product");
-const multer = require('multer');
 const cors = require('cors');
 const corsOptions = {
     origin: 'http://localhost:4200', 
@@ -15,9 +14,10 @@ const corsOptions = {
 };
   
 app.use(cors(corsOptions));
+
 app.options('/*', (_, res) => {
     res.sendStatus(200);
-})
+});
 
 
 
