@@ -3,7 +3,7 @@ const User  = require('../models/User');
 const bcrypt = require('bcrypt');
 const { verify } = require('crypto');
 const jwt = require('jsonwebtoken');
-const { verifyAdmin } = require('../middleware/tokenVerify');
+const { verifyAdmin,tokenVerify } = require('../middleware/tokenVerify');
 
 router.post('/register',async (req,res)=> {
     const newUser = new User({
@@ -48,7 +48,7 @@ router.post('/login',async (req,res)=> {
 });
 
 
-router.get('/verifyAdmin',verifyAdmin,async (req,res)=> {
+router.get('/verifyAdmin',tokenVerify,async (req,res)=> {
     try {
         res.status(200).json(savedUser);
     } catch(err){
