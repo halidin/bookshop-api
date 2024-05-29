@@ -48,7 +48,7 @@ router.post('/login',async (req,res)=> {
 });
 
 
-router.post('/verifyAdmin',verifyAdmin,async (req,res)=> {
+router.get('/verifyAdmin',verifyAdmin,async (req,res)=> {
     try {
         res.status(200).json(savedUser);
     } catch(err){
