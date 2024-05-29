@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const User  = require('../models/User');
 const bcrypt = require('bcrypt');
+const { verify } = require('crypto');
 const jwt = require('jsonwebtoken');
+const { verifyAdmin } = require('../middleware/tokenVerify');
 
 router.post('/register',async (req,res)=> {
     const newUser = new User({
@@ -46,6 +48,12 @@ router.post('/login',async (req,res)=> {
 });
 
 
-
+router.post('/verifyAdmin',verifyAdmin,async (req,res)=> {
+    try {
+        res.status(200).json(savedUser);
+    } catch(err){
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router
