@@ -53,4 +53,17 @@ router.delete('/remove/:id',verifyAdmin,async(req,res)=>{
     }
 })
 
+// Get all clients
+router.get('/clients', async (req, res) => {
+    try {
+        let client;
+        client = await Client.find().sort({ name: 1 }); // Sort by name in ascending order
+        res.status(200).json(customers);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
 module.exports = router
