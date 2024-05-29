@@ -48,12 +48,12 @@ router.post('/login',async (req,res)=> {
 });
 
 
-router.get('/verifyAdmin',tokenVerify,async (req,res)=> {
+router.get('/verifyAdmin',verifyAdmin,async (req,res)=> {
     try {
-        res.status(200).json(savedUser);
+        res.status(200).json('Admin verified');
     } catch(err){
-        res.status(500).json(err);
+        res.status(500).json('Admin not verified');
     }
 });
 
-module.exports = router
+module.exports = router 
