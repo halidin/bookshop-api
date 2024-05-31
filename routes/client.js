@@ -58,7 +58,7 @@ router.get('/all',async (req, res) => {
     try {
         let client;
         client = await Client.find().sort({ name: 1 }); // Sort by name in ascending order
-        res.status(200).json(customers);
+        res.status(200).json(client);
     } catch (err) {
         res.status(500).json(err);
     }
