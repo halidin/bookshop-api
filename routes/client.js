@@ -33,7 +33,7 @@ router.post('/addnew',verifyAdmin,async (req,res)=> {
 router.get('/client/:id',verifyAdmin,async(req,res)=>{
     try{
         const client = await Client.findById(req.params.id);
-        const {password, ...others} = user._doc;
+        const {password, ...others} = client._doc;
         res.status(200).json(others)
     }
     catch(err){
@@ -45,7 +45,7 @@ router.get('/client/:id',verifyAdmin,async(req,res)=>{
 router.delete('/remove/:id',verifyAdmin,async(req,res)=>{
     try{
         const client = await Client.findByIdAndDelete(req.params.id);
-        const {password, ...others} = user._doc;
+        const {password, ...others} = client._doc;
         res.status(200).json(others)
     }
     catch(err){
