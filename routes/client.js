@@ -52,7 +52,18 @@ router.delete('/remove/:id',verifyAdmin,async(req,res)=>{
         res.status(500).json(err);
     }
 })
-
+// Updated client
+router.post('/update/:id',verifyAdmin,async(req,res)=>{
+    
+    try{
+        
+        const client = await Client.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
+        res.status(200).json(client);
+    }
+    catch(err){
+        res.status(500).json(err);
+    }
+})
 // Get all clients
 router.get('/all',async (req, res) => {
     try {
