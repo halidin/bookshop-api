@@ -34,7 +34,7 @@ router.get('/client/:id',verifyAdmin,async(req,res)=>{
     try{
         const client = await Client.findById(req.params.id);
         const {password, ...others} = user._doc;
-        res.status(200).json(client)
+        res.status(200).json(others)
     }
     catch(err){
         res.status(500).json(err);
@@ -46,7 +46,7 @@ router.delete('/remove/:id',verifyAdmin,async(req,res)=>{
     try{
         const client = await Client.findByIdAndDelete(req.params.id);
         const {password, ...others} = user._doc;
-        res.status(200).json(client)
+        res.status(200).json(others)
     }
     catch(err){
         res.status(500).json(err);
