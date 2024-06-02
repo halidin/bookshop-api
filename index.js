@@ -7,6 +7,8 @@ const authRoute = require("./routes/auth");
 const clientRoute = require("./routes/client");
 const cartRoute = require("./routes/cart");
 const productRoute = require("./routes/product");
+const orderRoute = require("./routes/order");
+
 const cors = require('cors');
 const corsOptions = {
     origin: 'http://localhost:4200', 
@@ -38,7 +40,7 @@ app.use('/api/users',userRoute);
 app.use('/api/clients',clientRoute);
 app.use('/api/products',productRoute);
 app.use('/api/cart',cartRoute);
-
+app.use('/api/orders',orderRoute);
 
 app.get('/api/test',() =>{
     console.log('Test is successfull');

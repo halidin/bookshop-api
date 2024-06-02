@@ -11,6 +11,9 @@ const orderSchema = new mongoose.Schema(
             },
         ],
         amount:{type:Number,required:true},
+        fullname:{type: String , required: true},
+        email:{type: String , required: true, unique: true},
+        phonenumber: { type: Number, required: true,unique: true},
         address: {type: Object,required: true},
         status: {type: String, default:'Pending'},
 
