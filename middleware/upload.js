@@ -1,27 +1,22 @@
-// const express = require('express');
-// const { put } = require('@vercel/blob');
- 
-// export async function POST(request) {
-//   const { searchParams } = new URL(request.url);
-//   const filename = searchParams.get('filename');
- 
-//   const blob = await put(filename, request.body, {
-//     access: 'public',
-//   });
- 
-//   return NextResponse.json(blob);
-// }
-// // const multer = require('multer');
+import {v2 as cloudinary} from 'cloudinary';
+import exp from 'constants';
 
-// // const Storage = multer.diskStorage({
-// //     destination: 'uploads',
-// //     filename:(req,file,cb) =>{
-// //         cb(null,file.originalname);
-// //     },
-// // });
+cloudinary.config({ 
+  cloud_name: 'den0yuoe6', 
+  api_key: '397545497667879', 
+  api_secret: '1csBksDBE-8LbITNqkrcBvCVOLY' 
+});
 
-// // const upload = multer({
-// //     storage:Storage
-// // }).single('testImage')
+// Image uploader to cloudbinary
+async function uploader(imageData) {
+    try {
+        const uploadResult = await cloudinary.uploader.upload(imageData, { folder: 'products' ,width:300
+        });
+        return uploadResult; 
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
 
-// module.exports = upload;
+module.exports= uploader
