@@ -43,7 +43,7 @@ router.delete('/remove/:id',verifyAdmin,async(req,res)=>{
 })
 
 // Show product
-router.get('/:id',async(req,res)=>{
+router.get('product/:id',async(req,res)=>{
     try{
         const product = await Product.findById(req.params.id);
         res.status(200).json(product)
