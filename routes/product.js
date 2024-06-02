@@ -58,7 +58,7 @@ router.get('/:id',async(req,res)=>{
 router.get('/all',async(req,res)=>{
     try{
         let products;
-        products = await Product.find().sort({createdAt: -1}).limit(10);
+        products = await Product.find().sort({createdAt: -1});
         res.status(200).json(products)
     }
     catch(err){
