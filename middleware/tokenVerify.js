@@ -23,7 +23,7 @@ const tokenVerify = (req,res,next)=>{
 const verifyTokenAndAuth = (req,res,next) => {
     tokenVerify(req,res,()=>
     {
-        if(req.user.id == req.param.id || req.user.isAdmin){
+        if(req.user._id == req.param._id || req.user.isAdmin){
                 next();
             
         }
