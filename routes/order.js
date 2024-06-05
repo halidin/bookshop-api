@@ -17,7 +17,7 @@ router.post('/order',async(req,res)=>{
 })
 
 // Get all orders from specific customer
-router.get('/orders/:id',verifyTokenAndAuth, async (req, res) => {
+router.get('/:id',verifyTokenAndAuth, async (req, res) => {
     try {
         const orders = await Order.findById({ userId: req.params.id });
         res.status(200).json(orders);
