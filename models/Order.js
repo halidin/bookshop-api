@@ -1,5 +1,5 @@
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema(
     {
@@ -18,6 +18,7 @@ const orderSchema = new mongoose.Schema(
         email:{type: String , required: true, unique: true},
         phonenumber: { type: Number, required: true,unique: true},
         address: {type: Object,required: true},
+        totalPrice:{type: Number},
 
     },
     {timestamps:true}
