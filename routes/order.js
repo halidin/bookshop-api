@@ -1,6 +1,6 @@
 const Order = require('../models/Order');
-
 const router = require('express').Router();
+const { verifyAdmin,tokenVerify, verifyTokenAndAuth} = require('../middleware/tokenVerify');
 
 
 
@@ -17,7 +17,7 @@ router.post('/order',async(req,res)=>{
 })
 
 // Get all orders from specific customer
-router.get('/orders/:id', async (req, res) => {
+router.get('/orders/:id',verifyTokenAndAuth, async (req, res) => {
     try {
         const orders = await Order.findById({ userId: req.params.id });
         res.status(200).json(orders);
