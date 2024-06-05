@@ -16,7 +16,15 @@ router.post('/order',async(req,res)=>{
     }
 })
 
-
+// Get all orders from specific customer
+router.get('/orders/:id', async (req, res) => {
+    try {
+        const orders = await Order.findById({ userId: req.params.id });
+        res.status(200).json(orders);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 // Get all orders
 router.get('/all',async (req, res) => {
@@ -28,4 +36,8 @@ router.get('/all',async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+
+
 module.exports = router
