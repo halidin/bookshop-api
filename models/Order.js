@@ -15,8 +15,8 @@ const orderSchema = new mongoose.Schema(
             },
         ],
         fullname:{type: String , required: true},
-        email:{type: String , required: true, unique: true},
-        phonenumber: { type: Number, required: true,unique: true},
+        email:{type: String , required: true,},
+        phonenumber: { type: Number, required: true},
         address: {type: Object,required: true},
         totalPrice:{type: Number},
 
