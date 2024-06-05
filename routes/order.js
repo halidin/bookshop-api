@@ -26,6 +26,16 @@ router.get('/:id',verifyTokenAndAuth, async (req, res) => {
     }
 });
 
+// Get specific order 
+router.get('order/:id',verifyTokenAndAuth, async (req, res) => {
+    try {
+        const orders = await Order.findById(req.params.id);
+        res.status(200).json(orders);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 // Get all orders
 router.get('/all',async (req, res) => {
     try {
