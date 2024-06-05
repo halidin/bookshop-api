@@ -19,7 +19,7 @@ router.post('/order',async(req,res)=>{
 // Get all orders from specific customer
 router.get('/:id',verifyTokenAndAuth, async (req, res) => {
     try {
-        const orders = await Order.findById({ userId: req.params.id });
+        const orders = await Order.findById(req.params.id);
         res.status(200).json(orders);
     } catch (err) {
         res.status(500).json(err);
