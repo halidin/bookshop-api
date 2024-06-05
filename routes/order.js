@@ -6,7 +6,7 @@ const router = require('express').Router();
 
 // Create an order
 router.post('/order',async(req,res)=>{
-    const newOrder = new newOrder(req.body);
+    const newOrder = new Order(req.body);
     try{
         const savedOrder = await newOrder.save();
         res.status(200).json(savedOrder)
