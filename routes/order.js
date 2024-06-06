@@ -37,7 +37,7 @@ router.get('/order/:id',verifyTokenAndAuth, async (req, res) => {
 });
 
 // Get all orders
-router.get('/all',async (req, res) => {
+router.get('/all',verifyAdmin,async (req, res) => {
     try {
         let order;
         order = await Order.find().sort({createdAt: -1});// Sort by name in ascending order
