@@ -44,7 +44,7 @@ router.delete('/clearcart/:id',verifyTokenAndAuth,async(req,res)=>{
 })
 
 
-// Show product
+// Show cart
 router.get('/:userId',verifyTokenAndAuth,async(req,res)=>{
     try{
         const cart = await Cart.find({userId : req.params.userId});

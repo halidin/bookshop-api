@@ -20,6 +20,7 @@ router.post('/register',async (req,res)=> {
     }
 });
 
+// User login 
 router.post('/login',async (req,res)=> {
 
     try {
@@ -30,12 +31,14 @@ router.post('/login',async (req,res)=> {
                 res.status(401).json("Wrong username")
                 return
             }
+        
         const passwordCheck = await bcrypt.compare(req.body.password,user.password)
         if(!passwordCheck)
             {
                 res.status(401).json("Wrong password")
                 return
             }
+        // Generating access token
         const accessToken = jwt.sign({
             id:user._id,
             isAdmin:user.isAdmin
@@ -48,12 +51,6 @@ router.post('/login',async (req,res)=> {
 });
 
 
-router.get('/verifyAdmin',verifyAdmin,async (req,res)=> {
-    try {
-        res.status(200).json('Admin verified');
-    } catch(err){
-        res.status(500).json('Admin not verified');
-    }
-});
+
 
 module.exports = router 
