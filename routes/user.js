@@ -3,14 +3,6 @@ const User = require("../models/User");
 
 const router = require('express').Router();
 
-router.get('/usertest',(req,res) =>{
-    res.send('user test successfull')
-})
-
-router.post('/userposttest',(req,res) =>{
-    const username = req.body.username;
-    console.log(username);
-})
 
 
 router.get('/find/:id',verifyAdmin,async(req,res)=>{
