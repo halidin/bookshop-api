@@ -40,7 +40,7 @@ router.get('/order/:id',verifyTokenAndAuth, async (req, res) => {
 router.get('/all',verifyAdmin,async (req, res) => {
     try {
         let order;
-        order = await Order.find().sort({createdAt: -1});// Sort by name in ascending order
+        order = await Order.find();// Sort by name in ascending order
         res.status(200).json(order);
     } catch (err) {
         res.status(500).json(err);
