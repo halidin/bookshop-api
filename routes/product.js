@@ -42,7 +42,7 @@ router.delete('/remove/:id',verifyAdmin,async(req,res)=>{
     }
 })
 
-// Show product
+// Get specific product
 router.get('/product/:id',async(req,res)=>{
     try{
         const product = await Product.findById(req.params.id);
