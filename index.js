@@ -11,7 +11,7 @@ const orderRoute = require("./routes/order");
 
 const cors = require('cors');
 const corsOptions = {
-    origin: 'http://localhost:4200', 
+    origin: ['http://localhost:4200', 'https://bookstore-angularapp.vercel.app'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
   
