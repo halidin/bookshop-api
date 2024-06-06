@@ -1,1 +1,1 @@
-# bookshop-api
+# bookstore-api
